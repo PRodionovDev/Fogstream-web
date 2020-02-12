@@ -63,6 +63,19 @@
 
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
+                                <div class="captcha">
+                                    <div class="g-recaptcha" data-sitekey="{{ config('captcha.captcha.key') }}"></div>
+                                    @if($errors->has('g-recaptcha-response'))
+                                        <span class="invalid-feedback" style="display:block;">
+                                            <strong>{{$errors->first('g-recaptcha-response')}}</strong>
+                                        </span>
+                                    @endif
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">
                                     Register
                                 </button>
