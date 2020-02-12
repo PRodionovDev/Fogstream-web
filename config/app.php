@@ -169,6 +169,11 @@ return [
         Laravel\Tinker\TinkerServiceProvider::class,
 
         /*
+         * Package Passport Providers...
+         */
+        Laravel\Passport\PassportServiceProvider::class,
+
+        /*
          * Application Service Providers...
          */
         App\Providers\AppServiceProvider::class,
