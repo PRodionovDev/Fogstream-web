@@ -6,12 +6,26 @@ use App\Profile;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
-class HomeController
+class HomeController extends ApiController
 {
     /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Http\Response
+     * @SWG\Get(
+     *     path="/home",
+     *     summary="Get list of profile",
+     *     tags={"Profile"},
+     *     @SWG\Response(
+     *         response=200,
+     *         description="successful operation",
+     *         @SWG\Schema(
+     *             type="array",
+     *             @SWG\Items(ref="#/definitions/Profile")
+     *         ),
+     *     ),
+     *     @SWG\Response(
+     *         response="401",
+     *         description="Unauthorized user",
+     *     ),
+     * )
      */
     public function index()
     {

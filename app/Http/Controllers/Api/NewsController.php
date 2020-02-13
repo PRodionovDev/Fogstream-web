@@ -4,12 +4,22 @@ namespace App\Http\Controllers\Api;
 
 use App\News;
 
-class NewsController
+class NewsController extends ApiController
 {
     /**
-     * Display a listing of the resource.
-     *
-     * @return App\News
+     * @SWG\Get(
+     *     path="/news",
+     *     summary="Get list of news posts",
+     *     tags={"News"},
+     *     @SWG\Response(
+     *         response=200,
+     *         description="successful operation",
+     *         @SWG\Schema(
+     *             type="array",
+     *             @SWG\Items(ref="#/definitions/News")
+     *         ),
+     *     )
+     * )
      */
     public function index()
     {

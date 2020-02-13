@@ -1,0 +1,226 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "Fogstream test API",
+        "version": "1.0.0"
+    },
+    "host": "localhost/api",
+    "basePath": "/",
+    "schemes": [
+        "http"
+    ],
+    "paths": {
+        "/login": {
+            "post": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Log In",
+                "parameters": [
+                    {
+                        "name": "email",
+                        "in": "formData",
+                        "description": "User Email",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "password",
+                        "in": "formData",
+                        "description": "User Password",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/Token"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/logout": {
+            "post": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Log Out",
+                "responses": {
+                    "200": {
+                        "description": "You are successfully logged out"
+                    }
+                }
+            }
+        },
+        "/register": {
+            "post": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Register",
+                "parameters": [
+                    {
+                        "name": "name",
+                        "in": "formData",
+                        "description": "User Name",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "email",
+                        "in": "formData",
+                        "description": "User Email",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "password",
+                        "in": "formData",
+                        "description": "User Password",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "You were successfully registered. Use your email and password to sign in."
+                    }
+                }
+            }
+        },
+        "/home": {
+            "get": {
+                "tags": [
+                    "Profile"
+                ],
+                "summary": "Get list of profile",
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/Profile"
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized user"
+                    }
+                }
+            }
+        },
+        "/news": {
+            "get": {
+                "tags": [
+                    "News"
+                ],
+                "summary": "Get list of news posts",
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/News"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "News": {
+            "properties": {
+                "id": {
+                    "type": "integer"
+                },
+                "title": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "text": {
+                    "type": "string"
+                },
+                "img": {
+                    "type": "string"
+                },
+                "created_at": {
+                    "type": "string"
+                },
+                "updated_at": {
+                    "type": "string"
+                }
+            }
+        },
+        "Profile": {
+            "properties": {
+                "id": {
+                    "type": "integer"
+                },
+                "user_id": {
+                    "type": "integer"
+                },
+                "surname": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "middlename": {
+                    "type": "string"
+                },
+                "birthday": {
+                    "type": "string"
+                },
+                "photo": {
+                    "type": "string"
+                }
+            }
+        },
+        "Token": {
+            "properties": {
+                "token_type": {
+                    "type": "string"
+                },
+                "token": {
+                    "type": "string"
+                },
+                "expires_at": {
+                    "type": "string"
+                }
+            }
+        },
+        "User": {
+            "properties": {
+                "id": {
+                    "type": "integer"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "email": {
+                    "type": "string"
+                },
+                "password": {
+                    "type": "string"
+                },
+                "created_at": {
+                    "type": "string"
+                },
+                "updated_at": {
+                    "type": "string"
+                }
+            }
+        }
+    }
+}

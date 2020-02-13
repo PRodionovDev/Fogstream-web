@@ -3,17 +3,40 @@
 namespace App\Http\Controllers\Api\Auth;
 
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\Api\ApiController;
 use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
 
-class LoginController extends Controller
+class LoginController extends ApiController
 {
     /**
-     * Handle the incoming request.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @SWG\Post(
+     *     path="/login",
+     *     summary="Log In",
+     *     tags={"User"},
+     *     @SWG\Parameter(
+     *         name="email",
+     *         in="formData",
+     *         description="User Email",
+     *         required=true,
+     *         type="string",
+     *     ),
+     *     @SWG\Parameter(
+     *         name="password",
+     *         in="formData",
+     *         description="User Password",
+     *         required=true,
+     *         type="string",
+     *     ),
+     *     @SWG\Response(
+     *         response=200,
+     *         description="successful operation",
+     *         @SWG\Schema(
+     *             type="array",
+     *             @SWG\Items(ref="#/definitions/Token")
+     *         ),
+     *     )
+     * )
      */
     public function __invoke(Request $request)
     {

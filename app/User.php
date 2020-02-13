@@ -6,6 +6,35 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Laravel\Passport\HasApiTokens;
 
+/**
+ * @SWG\Definition(
+ *  definition="User",
+ *  @SWG\Property(
+ *      property="id",
+ *      type="integer"
+ *  ),
+ *  @SWG\Property(
+ *      property="name",
+ *      type="string"
+ *  ),
+ *  @SWG\Property(
+ *      property="email",
+ *      type="string"
+ *  ),
+ *  @SWG\Property(
+ *      property="password",
+ *      type="string"
+ *  ),
+ *  @SWG\Property(
+ *      property="created_at",
+ *      type="string"
+ *  ),
+ *  @SWG\Property(
+ *      property="updated_at",
+ *      type="string"
+ *  )
+ * )
+ */
 class User extends Authenticatable
 {
     use Notifiable, HasApiTokens;
