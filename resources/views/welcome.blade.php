@@ -2,22 +2,22 @@
 
 @section('content')
 <div class="container">
-    <?php foreach ($model as $key => $news) : ?>
+    @foreach ($model as $key => $news)
         <div class="news">
             <div class="row">
                 <div class="col-md-2">
-                    <img src="/storage/news/<?= $news->img ?>">
+                    <img src="/storage/news/{{ $news->img }}">
                 </div>
                 <div class="col-md-8">
-                    <h3><?= $news->title ?></h3>
-                    <p><?= $news->description ?></p>
-                    <p><?= $news->updated_at ?></p>
+                    <h3>{{ $news->title }}</h3>
+                    <p>{{ $news->description }}</p>
+                    <p>{{ $news->updated_at }}</p>
                 </div>
             </div>
         </div>
-    <?php endforeach; ?>
+    @endforeach
     <div>
-        <?= $model->render(); ?>
+        {{ $model->render() }}
     </div>
 </div>
 @endsection
