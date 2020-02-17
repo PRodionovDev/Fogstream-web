@@ -13,16 +13,22 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+Route::middleware('auth:api')->get(
+    '/user', function (Request $request) {
+        return $request->user();
+    }
+);
 
-Route::group(['namespace' => 'Api'], function () {
-    Route::group(['namespace' => 'Auth'], function () {
-        Route::post('register', 'RegisterController');
-        Route::post('login', 'LoginController');
-        Route::post('logout', 'LogoutController')->middleware('auth:api');
-    });
-    Route::get('news', 'NewsController@index');
-    Route::get('home', 'HomeController@index')->middleware('auth:api');
-});
+Route::group(
+    ['namespace' => 'Api'], function () {
+        Route::group(
+            ['namespace' => 'Auth'], function () {
+                Route::post('register', 'RegisterController');
+                Route::post('login', 'LoginController');
+                Route::post('logout', 'LogoutController')->middleware('auth:api');
+            }
+        );
+        Route::get('news', 'NewsController@index');
+        Route::get('home', 'HomeController@index')->middleware('auth:api');
+    }
+);

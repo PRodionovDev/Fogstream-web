@@ -40,6 +40,8 @@ use Illuminate\Database\Eloquent\Model;
 class Profile extends Model
 {
     /**
+     * Disable timestamps
+     *
      * @var bool
      */
     public $timestamps = false;

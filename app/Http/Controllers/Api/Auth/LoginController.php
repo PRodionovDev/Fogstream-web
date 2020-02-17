@@ -43,10 +43,12 @@ class LoginController extends ApiController
         $credentials = $request->only('email', 'password');
 
         if (!Auth::attempt($credentials)) {
-            return response()->json([
-                'message' => 'You cannot sign with those credentials',
-                'errors' => 'Unauthorised'
-            ], 401);
+            return response()->json(
+                [
+                    'message' => 'You cannot sign with those credentials',
+                    'errors' => 'Unauthorised'
+                ], 401
+            );
         }
 
         $token = Auth::user()->createToken(config('app.name'));
@@ -54,10 +56,13 @@ class LoginController extends ApiController
 
         $token->token->save();
 
-        return response()->json([
-            'token_type' => 'Bearer',
-            'token' => $token->accessToken,
-            'expires_at' => Carbon::parse($token->token->expires_at)->toDateTimeString()
-        ], 200);
+        return response()->json(
+            [
+                'token_type' => 'Bearer',
+                'token' => $token->accessToken,
+                'expires_at' => Carbon::parse($token->token->expires_at)
+                    ->toDateTimeString()
+            ], 200
+        );
     }
 }

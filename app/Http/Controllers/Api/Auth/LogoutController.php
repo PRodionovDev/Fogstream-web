@@ -7,7 +7,7 @@ use App\Http\Controllers\Api\ApiController;
 
 class LogoutController extends ApiController
 {
-	/**
+    /**
      * @SWG\Post(
      *     path="/logout",
      *     summary="Log Out",
@@ -22,8 +22,10 @@ class LogoutController extends ApiController
     {
         $request->user()->token()->revoke();
 
-        return response()->json([
-            'message' => 'You are successfully logged out',
-        ]);
+        return response()->json(
+            [
+                'message' => 'You are successfully logged out',
+            ]
+        );
     }
 }

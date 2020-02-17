@@ -28,8 +28,10 @@ class HomeController extends Controller
         $user = Auth::user()->id;
         $model = Profile::where('user_id', $user)->first();
 
-        return view('home')->with([
-            'model' => $model
-        ]);
+        return view('home')->with(
+            [
+                'model' => $model
+            ]
+        );
     }
 }

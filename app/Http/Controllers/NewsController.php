@@ -15,8 +15,10 @@ class NewsController extends Controller
     {
         $model = News::orderBy('created_at', 'asc')->paginate(10);
 
-        return view('welcome')->with([
-            'model' => $model
-        ]);
+        return view('welcome')->with(
+            [
+                'model' => $model
+            ]
+        );
     }
 }
