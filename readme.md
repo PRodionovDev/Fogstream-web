@@ -57,9 +57,9 @@ CAPTCHA_SECRET= Секретный ключ Captcha от Google
 ```
 php artisan migrate
 ```
-8. Даем права доступа к хранилищу данных:
+8. Даем права доступа к хранилищу данных и кэшу:
 ```
-chmod -R 0777 storage
+sudo chmod -R ug+rwx storage bootstrap/cache
 ```
 9. Создаем символьную ссылку в хранилище данных:
 ```
