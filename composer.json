@@ -6,17 +6,17 @@
     "type": "project",
     "require": {
         "php": ">=5.6.4",
-        "darkaonline/l5-swagger": "~4.0",
-        "laravel/framework": "5.4.*",
-        "laravel/passport": "~4.0",
-        "laravel/tinker": "~1.0",
-        "paragonie/random_compat": "~2.0",
-        "zircote/swagger-php": "2.*"
+        "darkaonline/l5-swagger": "4.0.1",
+        "laravel/framework": "5.4.36",
+        "laravel/passport": "4.0.3",
+        "laravel/tinker": "1.0.10",
+        "paragonie/random_compat": "2.0.18",
+        "zircote/swagger-php": "2.0.15"
     },
     "require-dev": {
-        "fzaninotto/faker": "~1.4",
-        "mockery/mockery": "0.9.*",
-        "phpunit/phpunit": "~5.7"
+        "fzaninotto/faker": "1.9.1",
+        "mockery/mockery": "0.9.11",
+        "phpunit/phpunit": "5.7.27"
     },
     "autoload": {
         "classmap": [
