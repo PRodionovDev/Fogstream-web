@@ -54,9 +54,7 @@
 
                                 <ul class="dropdown-menu" role="menu">
                                     <li>
-                                        <a href="{{ route('logout') }}"
-                                            onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
+                                        <a href="{{ route('logout') }}" onclick="logout()">
                                             Logout
                                         </a>
 
@@ -77,6 +75,7 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ asset('js/app.script.js') }}"></script>
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </body>
 </html>
